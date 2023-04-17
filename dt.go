@@ -29,7 +29,7 @@ func NewDecisionTree(dataPoints[] DataPoint) * DecisionTree {
     }
 }
 
-func(dt * DecisionTree) classify(features[] float64) int {
+func(dt * DecisionTree) Classify(features[] float64) int {
     return traverseTree(features, dt.root)
 }
 
