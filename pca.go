@@ -15,7 +15,7 @@ func NewPCA(nComponents int) * PCA {
     }
 }
 
-func(pca * PCA) fit(X[][] float64)([][] float64, [] float64) {
+func(pca * PCA) Fit(X[][] float64)([][] float64, [] float64) {
     nSamples,
     nFeatures: = len(X),
     len(X[0])
@@ -49,7 +49,7 @@ func(pca * PCA) fit(X[][] float64)([][] float64, [] float64) {
 
 
     eigenvalues,
-    eigenvectors: = eig(cov)
+    eigenvectors: = Eig(cov)
 
         idx: = make([] int, nFeatures)
     for i: = range idx {
@@ -82,7 +82,7 @@ func(pca * PCA) fit(X[][] float64)([][] float64, [] float64) {
     eigenvalues
 }
 
-func eig(A[][] float64)([] float64, [][] float64) {
+func Eig(A[][] float64)([] float64, [][] float64) {
     n: = len(A)
     Q: = make([][] float64, n)
     for i: = range Q {
