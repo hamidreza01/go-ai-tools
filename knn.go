@@ -28,7 +28,7 @@ func NewKNN(k int, dataPoints []DataPoint) *KNN {
     }
 }
 
-func (knn *KNN) distance(point1 []float64, point2 []float64) float64 {
+func (knn *KNN) Distance(point1 []float64, point2 []float64) float64 {
     sum := 0.0
     for i := 0; i < len(point1); i++ {
         sum += math.Pow(point1[i]-point2[i], 2)
@@ -36,12 +36,12 @@ func (knn *KNN) distance(point1 []float64, point2 []float64) float64 {
     return math.Sqrt(sum)
 }
 
-func (knn *KNN) classify(point []float64) float64 {
+func (knn *KNN) Classify(point []float64) float64 {
     distances := make([]Distance, len(knn.DataPoints))
     for i := 0; i < len(knn.DataPoints); i++ {
         distances[i] = Distance{
             Index: i,
-            Value: knn.distance(point, knn.DataPoints[i].Features),
+            Value: knn.Distance(point, knn.DataPoints[i].Features),
         }
     }
     sort.Slice(distances, func(i, j int) bool { return distances[i].Value < distances[j].Value })
