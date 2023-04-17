@@ -40,11 +40,11 @@ func NewNeuralNetwork(numInputs int, numOutputs int, numHiddenLayers int, numNeu
     return nn
 }
 
-func sigmoid(x float64) float64 {
+func Sigmoid(x float64) float64 {
     return 1 / (1 + math.Exp(-x))
 }
 
-func (nn *NeuralNetwork) forward(inputs []float64) []float64 {
+func (nn *NeuralNetwork) Forward(inputs []float64) []float64 {
     activations := make([]float64, nn.numNeuronsPerLayer)
 
     for i := 0; i < nn.numNeuronsPerLayer; i++ {
@@ -76,7 +76,7 @@ func (nn *NeuralNetwork) forward(inputs []float64) []float64 {
         for j := 0; j < nn.numNeuronsPerLayer; j++ {
             sum += activations[j] * nn.weights[nn.numHiddenLayers][i*nn.numNeuronsPerLayer+j]
         }
-        outputs[i] = sigmoid(sum)
+        outputs[i] = Sigmoid(sum)
     }
 
     return outputs
