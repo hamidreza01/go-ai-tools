@@ -102,3 +102,5 @@ The weights and biases are learned through backpropagation through time, which i
 ## Conclusion
 
 These are some of the most commonly used machine learning algorithms in practice. While there are many other algorithms out there, understanding these fundamental models will give you a solid foundation to build upon.
+
+[🧠)
